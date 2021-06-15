@@ -8,25 +8,42 @@ import java.util.List;
 import java.util.Map;
 
 public class Task02 {
-
-	public static void main(String[] args) {
-		// 変数を使ってのHello Worldの表示
+	
+	// Hello Worldを表示するメソッド
+	private static void hello() {
 		String greeting = "Hello World";
 		System.out.println(greeting);
-		
-		// 1~10までを足した結果を表示
+	}
+	// 1~10までを足した結果を表示するメソッド
+	private static void oneToTen() {
 		int num = 0;
 		for (int i = 1; i <= 10; i++) { num += i; }
 		System.out.println(num);
-		
-		// 3年後の今日の曜日
+	}
+	// 3年後の今日の曜日を表示するメソッド
+	private static void weekdayAfterThreeYears() {
 		LocalDateTime today = LocalDateTime.now();
-		LocalDateTime afterThree = today.plusYears(3);
-		DayOfWeek week = afterThree.getDayOfWeek();
+		LocalDateTime afterThreeYears = today.plusYears(3);
+		DayOfWeek week = afterThreeYears.getDayOfWeek();
 		System.out.println(week);
+	}
+	
+	// 引数0ならfalse、1ならtrueを返すメソッド
+	private static void isOne (int num) {
+		boolean result;
+		if (num == 1) { result = true; }
+		else { result = false; }
+		System.out.println(result);
+	}
+
+	public static void main(String[] args) {
+		hello();
 		
-		// 引数0ならfalse、1ならtrueの実行、表示
-		System.out.println(judge(1));
+		oneToTen();
+		
+		weekdayAfterThreeYears();
+		
+		isOne(1);
 		
 		// Listの作成、表示
 		List<String> bloodType = new ArrayList<>();
@@ -39,21 +56,13 @@ public class Task02 {
 		}
 		
 		// Mapの作成。表示
-		Map<String, String> seventeen = new HashMap<>();
-		seventeen.put ("推し", "정한");
-		seventeen.put ("顔推し", "조슈아");
-		seventeen.put ("沼", "에스쿱스");
-		for (String key : seventeen.keySet()) {
-			System.out.println(key + ":" + seventeen.get(key));
+		Map<String, String> japaneseKoreanMap = new HashMap<>();
+		japaneseKoreanMap.put ("ひとつ", "하나");
+		japaneseKoreanMap.put ("ふたつ", "둘");
+		japaneseKoreanMap.put ("みっつ", "셋");
+		for (String key : japaneseKoreanMap.keySet()) {
+			System.out.println(key + ":" + japaneseKoreanMap.get(key));
 		}
 	}
-	
-		// 引数0ならfalse、1ならtrueのメソッド
-	public static boolean judge (int num) {
-		if (num == 1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+
 }
